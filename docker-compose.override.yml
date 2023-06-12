@@ -1,0 +1,71 @@
+version: '3.8'
+
+services:
+  bookingclone.api:
+    container_name: BookingClone_API
+    environment:
+      - ASPNETCORE_ENVIRONMENT=DockerDevelopment
+      - ASPNETCORE_URLS=http://+:80
+    ports:
+      - 13001:80
+      #- 13000:443
+    depends_on: 
+      - sqlserver
+    #volumes:
+    #  - ${APPDATA}/Microsoft/UserSecrets:/root/.microsoft/usersecrets:ro
+    #  - ${APPDATA}/ASP.NET/Https:/root/.aspnet/https:ro
+
+  bookingclone.yarp:
+    container_name: BookingClone_YARP
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=http://+:80
+      #- ASPNETCORE_URLS=https://+:443;http://+:80
+    ports:
+      - 12001:80
+      #- 12000:443
+    #volumes:
+    #  - ${APPDATA}/Microsoft/UserSecrets:/root/.microsoft/usersecrets:ro
+    #  - ${APPDATA}/ASP.NET/Https:/root/.aspnet/https:ro
+  
+  sqlserver:
+    container_name: sqlserver
+    environment:
+      - ACCEPT_EULA=Y
+      - MSSQL_SA_PASSWORD=abcde12345$
+    ports:
+      - 1433:1433
+    restart: unless-stopped
+      
+  azurite:
+    container_name: Azurite
+    restart: unless-stopped
+    ports:
+      - 10000:10000
+      - 10001:10001
+      - 10002:10002
+
+  elasticsearch:
+    container_name: elasticsearch
+    environment:
+      - xpack.monitoring.enabled=true
+      - xpack.watcher.enabled=false
+      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+      - discovery.type=single-node
+    ports:
+      - 9200:9200
+      - 9300:9300
+    volumes:
+      - elasticsearch-data:/usr/share/elasticsearch/data 
+
+  kibana:
+    container_name: kibana
+    environment:        
+      - ELASTICSEARCH_URL=http://elasticsearch:9200
+    depends_on:
+      - elasticsearch
+    ports:
+      - 5601:5601
+
+volumes:
+  elasticsearch-data:
