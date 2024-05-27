@@ -1,0 +1,88 @@
+<section class="container">
+  <div class="row container">
+    <div class="col-xl-7 my-3 col-lg-7 col-md-6 col-sm-12">
+      <img [src]="imgUrl" class="img-fluid w-100" />
+    </div>
+
+    <div class="col-xl-5 col-lg-5 col-md-6 col-sm-12 border border-2 border-warning py-1 my-3">
+      <div class="content py-2 my-2 container">
+        <h4 class="fs-4 fw-bold my-3">{{ hotelDetail?.name }}</h4>
+        <p>Description: {{ hotelDetail?.description }}</p>
+        <p *ngIf="hotelDetail?.starRating == 5">
+          <i class="bi bi-star-fill text-warning"></i>
+          <i class="bi bi-star-fill text-warning"></i>
+          <i class="bi bi-star-fill text-warning"></i>
+          <i class="bi bi-star-fill text-warning"></i>
+          <i class="bi bi-star-fill text-warning"></i>
+        </p>
+
+        <p *ngIf="hotelDetail?.starRating == 4">
+          <i class="bi bi-star-fill text-warning"></i>
+          <i class="bi bi-star-fill text-warning"></i>
+          <i class="bi bi-star-fill text-warning"></i>
+          <i class="bi bi-star-fill text-warning"></i>
+        </p>
+
+        <p *ngIf="hotelDetail?.starRating == 3">
+          <i class="bi bi-star-fill text-warning"></i>
+          <i class="bi bi-star-fill text-warning"></i>
+          <i class="bi bi-star-fill text-warning"></i>
+        </p>
+        <hr class="my-4" />
+
+        <div class="row mt-5 container">
+          <h5>Most popular facilities</h5>
+
+          <ul class="d-flex list-unstyled">
+            <li class="mx-2"><i class="bi bi-check-lg"> Room service</i></li>
+            <li class="mx-2">
+              <i class="bi bi-x-octagon-fill"> Non-smoking rooms</i>
+            </li>
+            <li class="mx-2"><i class="bi bi-wifi"> Wifi</i></li>
+          </ul>
+
+          <ul class="d-flex list-unstyled">
+            <li class="mx-2"><i class="bi bi-cup-fill"> Breakfast</i></li>
+            <li class="mx-2"><i class="bi bi-people-fill"> Family rooms</i></li>
+            <li class="mx-2">
+              <i class="bi bi-bus-front-fill"> Airport shuttle (free)</i>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="container">
+  <label for="customRange1" class="form-label mx-2">Filter By Price</label>
+  <input type="range" class="form-range col-md-4 w-25 " id="customRange1" min="0" max="5000" value="500"
+    (change)="ChangeValue($event.target, select.value)" #input />
+  <span id="valueRange">{{ range }}</span>
+</section>
+
+<section class="container ">
+  <span class="my-2">Filter By Availability</span>
+  <select class="form-control w-25" #select (change)="ChangeValue(input, select.value)">
+
+    <option disabled selected>Selcet Type</option>
+    <option value="1">Available</option>
+    <option value="0">Not Available</option>
+  </select>
+</section>
+
+<section class="container">
+  <div class="row">
+    <div class="content py-2 my-2">
+      <ng-container *ngIf="rooms.length == 0">
+        <h4 class="text-danger fw-bold">No Rooms Found For This Hotel</h4>
+      </ng-container>
+      <ng-container *ngIf="rooms.length > 0">
+        <h2 class="fs-5 mx-3">Rooms of this hotel</h2>
+        <ng-container *ngFor="let room of rooms">
+          <app-room-details [roomDetails]="room"></app-room-details>
+        </ng-container>
+      </ng-container>
+    </div>
+  </div>
+</section>

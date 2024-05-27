@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+  <file source-language="en-US" datatype="plaintext" original="ng2.template">
+    <body>
+      <trans-unit id="6782077395930235254" datatype="html">
+        <source>Countries</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/Components/footer/footer.component.html</context>
+          <context context-type="linenumber">7</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="699590710757792843" datatype="html">
+        <source>Regions</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/Components/footer/footer.component.html</context>
+          <context context-type="linenumber">10</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="9211144034861875518" datatype="html">
+        <source>Cities</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/Components/footer/footer.component.html</context>
+          <context context-type="linenumber">13</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8186650763769616361" datatype="html">
+        <source>Districts</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/Components/footer/footer.component.html</context>
+          <context context-type="linenumber">16</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="338105300428149671" datatype="html">
+        <source>Airports</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/Components/footer/footer.component.html</context>
+          <context context-type="linenumber">19</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1597470736145319726" datatype="html">
+        <source>Hotels</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/Components/footer/footer.component.html</context>
+          <context context-type="linenumber">22</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8784442114860016274" datatype="html">
+        <source>Places of interest</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/Components/footer/footer.component.html</context>
+          <context context-type="linenumber">25</context>
+        </context-group>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

@@ -1,0 +1,19 @@
+<h2 class="text-primary">{{"Attraction Reservations"|translate}}</h2>
+<table class="table table-striped border">
+  <thead>
+    <tr class="table-secondary">
+      <th>ID</th>
+      <th>Status</th>
+      <th>Total Price</th>
+      <th>Tour Start</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let reservation of attractionReservationsList">
+      <td>{{reservation.id}}</td>
+      <td>{{reservation.status}}</td>
+      <td>{{reservation.totalCost}}</td>
+      <td>{{reservation.tourStart | date}}</td>
+    </tr>
+  </tbody>
+</table>

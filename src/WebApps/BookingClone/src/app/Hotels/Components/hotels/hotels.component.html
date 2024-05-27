@@ -1,0 +1,116 @@
+<!-- <table class="table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Rating</th>
+
+
+
+    </tr>
+  </thead>
+  <tbody>
+
+
+    <tr *ngFor="let prd of hotelList">
+      <tr *ngFor="hotelList"> -->
+
+<!-- <td>{{prd.name | uppercase}}</td>
+
+      <td>{{prd.description}}</td>
+      <td>{{prd.starRating}}</td>
+
+
+    </tr>
+  </tbody>
+</table> -->
+
+
+<section class="container my-3">
+  <h1 class=" fs-4 fw-bold">{{"Looking for a particular type of hotel?"|translate}}</h1>
+  <span class="fw-light ">{{"Find a great deal on a hotel for tonight or an upcoming trip"|translate}}</span>
+  <div class="row mt-3">
+    <ng-container *ngIf="showMsg"><span class="text-danger">No Hotels Found For Page {{pageNumber + 1}}</span>
+    </ng-container>
+    <nav aria-label="Page navigation example">
+      <ul class="pagination">
+        <li class="page-item"><a class="page-link" (click)="getHotels('Previous')">Previous</a></li>
+        <li class="page-item"><a class="page-link">{{pageNumber}}</a></li>
+
+        <li class="page-item"><a class="page-link" (click)="getHotels('Next')">Next</a></li>
+      </ul>
+    </nav>
+    <ng-container *ngIf="hotelList?.length == 0 && !showMsg">{{"No Hotels Found"|translate}}</ng-container>
+    <ng-container *ngIf="hotelList?.length > 0">
+      <div class="col-xl-4 col-lg-4 col-md-6" *ngFor="let hotel of hotelList ">
+        <!-- <div class="content  card">
+
+      <a [routerLink]='["/HotelDetails",hotel.id]' class="text-decoration-none text-black card-body"
+        (click)="seImgtUrl(hotel)">
+
+        <div class="">
+          <img [src]="hotel.url" [alt]="hotel.name" class=" img-fluid">
+        </div>
+        <h4 class="card-title">{{hotel.name}}</h4>
+        <p class="card-text">{{hotel.description}}</p>
+        <p>{{hotel.starRating}}</p>
+
+      </a>
+
+    </div> -->
+        <a [routerLink]='["/HotelDetails",hotel.id]' class="text-decoration-none text-black card-body"
+          (click)="seImgtUrl(hotel)">
+          <div class="card mb-3">
+            <img [src]="hotel.url" class="card-img-top" [alt]="hotel.name">
+            <div class="card-body">
+              <h5 class="card-title fs-4 fw-bold">{{hotel.name}}</h5>
+              <p class="card-text ">{{hotel.description}}</p>
+              <!-- <p class="card-text"> <i class="bi bi-star-fill mx-2"></i>{{hotel.starRating}}</p> -->
+              <p class="card-text" *ngIf="hotel.starRating==5"> <i class="bi bi-star-fill "></i>
+                <i class="bi bi-star-fill "></i>
+                <i class="bi bi-star-fill "></i>
+                <i class="bi bi-star-fill "></i>
+                <i class="bi bi-star-fill "></i>
+
+              </p>
+
+              <p class="card-text" *ngIf="hotel.starRating==4"> <i class="bi bi-star-fill "></i>
+                <i class="bi bi-star-fill "></i>
+                <i class="bi bi-star-fill "></i>
+                <i class="bi bi-star-fill "></i>
+
+
+              </p>
+
+              <p class="card-text" *ngIf="hotel.starRating==3"> <i class="bi bi-star-fill "></i>
+                <i class="bi bi-star-fill "></i>
+                <i class="bi bi-star-fill "></i>
+                <i class="bi bi-star-fill "></i>
+
+
+              </p>
+
+              <p class="card-text" *ngIf="hotel.starRating==2"> <i class="bi bi-star-fill "></i>
+                <i class="bi bi-star-fill "></i>
+                <i class="bi bi-star-fill "></i>
+
+
+              </p>
+
+              <p class="card-text" *ngIf="hotel.starRating==1"> <i class="bi bi-star-fill "></i>
+                <i class="bi bi-star-fill "></i>
+
+
+              </p>
+            </div>
+          </div>
+        </a>
+      </div>
+    </ng-container>
+
+
+  </div>
+
+
+
+</section>

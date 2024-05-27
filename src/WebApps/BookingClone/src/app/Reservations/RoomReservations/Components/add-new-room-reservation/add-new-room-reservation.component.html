@@ -1,0 +1,22 @@
+<h2 class="text-primary">{{"Make a new Room Reservation"|translate}}</h2>
+
+<form>
+  <div class="form-group row py-2">
+    <label for="TotalCost" class="form-label">{{"Total Cost"|translate}}</label>
+    <input id="TotalCost" name="TotalCost" class="form-control" type="number" [(ngModel)]="newRoomReservation.totalCost"
+      disabled />
+  </div>
+  <div class="form-group row py-2">
+    <label for="CheckIn" class="form-label">Check in Date</label>
+    <input id="CheckIn" name="CheckIn" class="form-control" type="datetime-local"
+      [(ngModel)]="newRoomReservation.checkIn" />
+  </div>
+  <div class="form-group row py-2">
+    <label for="CheckOut" class="form-label">Check out Date</label>
+    <input id="CheckOut" name="CheckOut" class="form-control" type="datetime-local"
+      [(ngModel)]="newRoomReservation.checkOut" />
+  </div>
+  <div class="form-group py-2">
+    <ngx-paypal [config]="payPalConfig"></ngx-paypal>
+  </div>
+</form>

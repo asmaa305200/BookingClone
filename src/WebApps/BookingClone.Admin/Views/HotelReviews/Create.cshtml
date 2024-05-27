@@ -1,0 +1,121 @@
+﻿@using BookingClone.Application.Features.HotelReviewFeatures.DTOs;
+@model AddHotelReviewDto
+@{
+    ViewData["Title"] = "Create";
+}
+
+<form method="post" asp-action="Create">
+    <div class="border p-3">
+        <div class="form-group row">
+            <h2 class="text-info ps-3">Create new Attraction Review</h2>
+        </div>
+        <div class="row">
+            <div class="col-8">
+
+                <div class="form-group row py-2">
+                    <div class="col-4">
+                        <label asp-for="PositiveReview"></label>
+                    </div>
+                    <div class="col-8">
+                        <textarea asp-for="PositiveReview" class="form-control"></textarea>
+                        <span asp-validation-for="PositiveReview" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="form-group row py-2">
+                    <div class="col-4">
+                        <label asp-for="NegativeReview"></label>
+                    </div>
+                    <div class="col-8">
+                        <textarea asp-for="NegativeReview" class="form-control"></textarea>
+                        <span asp-validation-for="NegativeReview" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="form-group row py-2">
+                    <div class="col-4">
+                        <label asp-for="ComfortRate"></label>
+                    </div>
+                    <div class="col-8">
+                        <input asp-for="ComfortRate" class="form-control" />
+                        <span asp-validation-for="ComfortRate" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="form-group row py-2">
+                    <div class="col-4">
+                        <label asp-for="StaffRate"></label>
+                    </div>
+                    <div class="col-8">
+                        <input asp-for="StaffRate" class="form-control" />
+                        <span asp-validation-for="StaffRate" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="form-group row py-2">
+                    <div class="col-4">
+                        <label asp-for="FacilitiesRate"></label>
+                    </div>
+                    <div class="col-8">
+                        <input asp-for="FacilitiesRate" class="form-control" />
+                        <span asp-validation-for="FacilitiesRate" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="form-group row py-2">
+                    <div class="col-4">
+                        <label asp-for="ValueForMoneyRate"></label>
+                    </div>
+                    <div class="col-8">
+                        <input asp-for="ValueForMoneyRate" class="form-control" />
+                        <span asp-validation-for="ValueForMoneyRate" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="form-group row py-2">
+                    <div class="col-4">
+                        <label asp-for="CleanlinessRate"></label>
+                    </div>
+                    <div class="col-8">
+                        <input asp-for="CleanlinessRate" class="form-control" />
+                        <span asp-validation-for="CleanlinessRate" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="form-group row py-2">
+                    <div class="col-4">
+                        <label asp-for="LocationRate"></label>
+                    </div>
+                    <div class="col-8">
+                        <input asp-for="LocationRate" class="form-control" />
+                        <span asp-validation-for="LocationRate" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="form-group row py-2">
+                    <div class="col-4">
+                        <label asp-for="HotelID"></label>
+                    </div>
+                    <div class="col-8">
+                        <input asp-for="HotelID" class="form-control" />
+                        <span asp-validation-for="HotelID" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="form-group row py-2">
+                    <div class="col-8 offset-4 row">
+                        <div class="col">
+                            <button type="submit" class="btn btn-success">
+                                <i class="bi bi-check-circle"></i>
+                                Create
+                            </button>
+                            <a asp-action="Index" class="btn btn-secondary">
+                                <i class="bi bi-arrow-left"></i>
+                                Back
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>

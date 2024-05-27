@@ -1,0 +1,16 @@
+h5 {
+font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+}
+
+p{
+font-weight: light;
+font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+p:hover{
+  color: #cf8f0e;
+}
+.card-text>i{
+  color: #ffb700;
+}

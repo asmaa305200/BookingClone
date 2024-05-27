@@ -1,0 +1,52 @@
+﻿@using BookingClone.Application.Features.AttractionReservationFeatures.DTOs;
+@model AddAttractionReservationDto
+@{
+    ViewData["Title"] = "Create";
+}
+
+<form method="post" asp-action="Create">
+    <div class="border p-3 bg-white">
+        <div class="form-group row">
+            <h2 class="text-info ps-3">Create new Room Reservation</h2>
+        </div>
+        <div class="row">
+            <div class="col-8">
+                <div class="form-group row py-2">
+                    <div class="col-4">
+                        <label asp-for="TotalCost"></label>
+                    </div>
+                    <div class="col-8">
+                        <input asp-for="TotalCost" class="form-control" type="number" />
+                        <span asp-validation-for="TotalCost" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="form-group row py-2">
+                    <div class="col-4">
+                        <label asp-for="TourStart"></label>
+                    </div>
+                    <div class="col-8">
+                        <input asp-for="TourStart" class="form-control" type="datetime-local" />
+                        <span asp-validation-for="TourStart" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="form-group row py-2">
+                    <div class="col-8 offset-4 row">
+                        <div class="col">
+                            <button type="submit" class="btn btn-success">
+                                <i class="bi bi-check-circle"></i>
+                                Create
+                            </button>
+                            <a asp-action="Index" class="btn btn-secondary">
+                                <i class="bi bi-arrow-left"></i>
+                                Back
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-4">
+                @* Keep this empty *@
+            </div>
+        </div>
+    </div>
+</form>

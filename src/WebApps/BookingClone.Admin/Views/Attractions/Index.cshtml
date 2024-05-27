@@ -1,0 +1,89 @@
+﻿@using BookingClone.Application.Features.AttractionFeatures.DTOs;
+@using BookingClone.Domain.Common;
+@model PagedList<GetAttractionDto>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="row">
+    <div class="col-6">
+        <h2 class="text-primary">Attractions List</h2>
+    </div>
+    <div class="col-6 text-end">
+        <a asp-action="Create" class="btn btn-primary">
+            <i class="bi bi-plus"></i>
+            Create New Attraction
+        </a>
+    </div>
+</div>
+<div class="p-1 border rounded">
+    @if (Model.Data.Any())
+    {
+        <table class="table table-striped border">
+            <thead>
+                <tr class="table-secondary">
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Available Tickets</th>
+                    <th>Duration</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.Data)
+                {
+                    <tr>
+                        <td>
+                            @item.ID
+                        </td>
+                        <td>
+                            @item.Name
+                        </td>
+                        <td>
+                            @item.AvailableTickets
+                        </td>
+                        <td>
+                            @item.Duration
+                        </td>
+                        <td>
+                            <div>
+                                <a asp-action="Details" asp-route-id="@item.ID" class="btn btn-secondary">
+                                    <i class="bi bi-list"></i>
+                                    Details
+                                </a>
+                                <a asp-action="Edit" asp-route-id="@item.ID" class="btn btn-info">
+                                    <i class="bi bi-pen"></i>
+                                    Edit
+                                </a>
+                            </div>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+        <nav aria-label="Page navigation example">
+            <ul class="pagination">
+                <li class="page-item @(Model.IsFirstPage ? "disabled" : string.Empty)">
+                    <a class="page-link" asp-action="Index" asp-route-pageNumber="@(Model.PageNumber - 1)" aria-label="Previous">
+                        <span aria-hidden="true">&laquo;</span>
+                    </a>
+                </li>
+                @for (int i = 1; i < Model.TotalPages + 1; i++)
+                {
+                    <li class="page-item">
+                        <a class="page-link @(Model.PageNumber == i ? "active" : string.Empty)" asp-action="Index" asp-route-pageNumber="@i">@i</a>
+                    </li>
+                }
+                <li class="page-item @(Model.IsLastPage ? "disabled" : string.Empty)">
+                    <a class="page-link" asp-action="Index" asp-route-pageNumber="@(Model.PageNumber + 1)" aria-label="Next">
+                        <span aria-hidden="true">&raquo;</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    }
+    else
+    {
+        <p>No Data Available</p>
+    }
+</div>

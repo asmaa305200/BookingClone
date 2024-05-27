@@ -1,0 +1,68 @@
+﻿
+@using BookingClone.Application.Features.continent.DTOs;
+@using BookingClone.Domain.Common;
+@using BookingClone.Domain.Entities;
+@model PagedList<ContinentDetailsDto>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+<div class="row">
+    <div class="col-6">
+        <h2 class="text-primary">Continent List</h2>
+    </div>
+    <div class="col-6 text-end">
+        <a asp-action="Create" class="btn btn-primary">
+            <i class="bi bi-plus"></i>
+            Create New Continent
+        </a>
+    </div>
+</div>
+<div class="p-1 border rounded">
+    @if (Model.Data.Any())
+    {
+        <table class="table table-striped border">
+            <thead>
+                <tr class="table-secondary">
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Actions</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.Data)
+                {
+                    <tr>
+                        <td>
+                            @item.ID
+                        </td>
+
+                        <td>
+                            @item.Name
+                        </td>
+                        <td>
+                            <div>
+                                <a asp-action="Details" asp-route-id="@item.ID" class="btn btn-secondary">
+                                    <i class="bi bi-list"></i>
+                                    Details
+                                </a>
+                                <a asp-action="Edit" asp-route-id="@item.ID" class="btn btn-info">
+                                    <i class="bi bi-pen"></i>
+                                    Edit
+                                </a>
+                            </div>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+    else
+    {
+        <p>No Data Available</p>
+    }
+</div>
+

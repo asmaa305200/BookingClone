@@ -1,0 +1,53 @@
+﻿@using BookingClone.Application.Features.AttractionReviewFeatures.DTOs;
+@model AddAttractionReviewDto
+@{
+    ViewData["Title"] = "Create";
+}
+
+<form method="post" asp-action="Create">
+    <div class="border p-3">
+        <div class="form-group row">
+            <h2 class="text-info ps-3">Create new Attraction Review</h2>
+        </div>
+        <div class="row">
+            <div class="col-8">
+
+                <div class="form-group row py-2">
+                    <div class="col-4">
+                        <label asp-for="Comment"></label>
+                    </div>
+                    <div class="col-8">
+                        <input asp-for="Comment" class="form-control" type="text" />
+                        <span asp-validation-for="Comment" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="form-group row py-2">
+                    <div class="col-4">
+                        <label asp-for="AttractionID"></label>
+                    </div>
+                    <div class="col-8">
+                        <textarea asp-for="AttractionID" class="form-control"></textarea>
+                        <span asp-validation-for="AttractionID" class="text-danger"></span>
+                    </div>
+                </div>
+
+
+                <div class="form-group row py-2">
+                    <div class="col-8 offset-4 row">
+                        <div class="col">
+                            <button type="submit" class="btn btn-success">
+                                <i class="bi bi-check-circle"></i>
+                                Create
+                            </button>
+                            <a asp-action="Index" class="btn btn-secondary">
+                                <i class="bi bi-arrow-left"></i>
+                                Back
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>

@@ -1,0 +1,21 @@
+<h2 class="text-primary">{{"Room Reservations"|translate}}</h2>
+<table class="table table-striped border">
+  <thead>
+    <tr class="table-secondary">
+      <th>ID</th>
+      <th>Status</th>
+      <th>Total Price</th>
+      <th>Check In</th>
+      <th>Check Out</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let reservation of roomReservationsList">
+      <td>{{reservation.id}}</td>
+      <td>{{reservation.status}}</td>
+      <td>{{reservation.totalCost}}</td>
+      <td>{{reservation.checkIn | date}}</td>
+      <td>{{reservation.checkOut | date}}</td>
+    </tr>
+  </tbody>
+</table>

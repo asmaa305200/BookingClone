@@ -1,0 +1,56 @@
+﻿
+@using BookingClone.Application.Features.country.DTOs;
+@model CountryDetailsDto
+@{
+    ViewData["Title"] = "Create";
+    var selectList = (List<SelectListItem>)ViewData["Continents"];
+}
+
+<form method="post" asp-action="Create" asp-controller="Country">
+    <div class="border p-3 bg-white">
+        <div class="form-group row">
+            <h2 class="text-info ps-3">Create new Country</h2>
+        </div>
+        <div class="row">
+            <div class="col-8">
+                <div class="form-group row py-2">
+                    <div class="col-4">
+                        <label asp-for="Name"></label>
+                    </div>
+                    <div class="col-8">
+                        <input asp-for="Name" class="form-control" type="text" />
+                        <span asp-validation-for="Name" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="form-group row py-2">
+
+                    <div class="col-4">
+                        <label>Select Continent</label>
+                    </div>
+                    <div class="col-8">
+                        <select class="form-select" aria-label="Default select example" asp-for="ContinentID" asp-items="@selectList"></select>
+                    </div>
+
+                </div>
+
+
+            </div>
+            <div class="form-group row py-2">
+                <div class="col-8 offset-4 row">
+                    <div class="col">
+                        <button type="submit" class="btn btn-success">
+                            <i class="bi bi-check-circle"></i>
+                            Create
+                        </button>
+                        <a asp-action="Index" class="btn btn-secondary">
+                            <i class="bi bi-arrow-left"></i>
+                            Back
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</form>

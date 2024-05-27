@@ -1,0 +1,92 @@
+﻿@using BookingClone.Application.Features.HotelFeatures.DTOs;
+@model GetHotelsDto
+@{
+    ViewData["Title"] = "Details";
+
+    string SetBadgeColor(decimal rating)
+    {
+        return rating switch
+        {
+            decimal i when i >= 4 => "bg-success",
+            decimal i when i >= 2 && i < 4 => "bg-warning",
+            decimal i when i < 2 => "bg-danger",
+            _ => string.Empty
+        };
+    }
+}
+
+<div class="border p-3 bg-white">
+    <div class="form-group row">
+        <h2 class="text-info ps-3">Hotel Details for ID @Model.Id</h2>
+    </div>
+    <div class="row">
+        <div class="col-8">
+            <div class="form-group row py-2">
+                <div class="col-4">
+                    <label asp-for="Name"></label>
+                </div>
+                <div class="col-8">
+                    <input asp-for="Name" class="form-control" disabled />
+                </div>
+            </div>
+            <div class="form-group row py-2">
+                <div class="col-4">
+                    <label asp-for="Description"></label>
+                </div>
+                <div class="col-8">
+                    <textarea asp-for="Description" class="form-control" disabled></textarea>
+                </div>
+            </div>
+            <div class="form-group row py-2">
+                <div class="col-4">
+                    <label asp-for="StarRating"></label>
+                </div>
+                <div class="col-8">
+                    <span class="badge @SetBadgeColor(Model.StarRating)">@Model.StarRating</span>
+                </div>
+            </div>
+            <div class="form-group row py-2">
+                <div class="col-8 offset-4 row">
+                    <div class="col mt-2">
+                        <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-primary">
+                            <i class="bi bi-pen"></i>
+                            Edit
+                        </a>
+                        <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                            Delete
+                        </button>
+                        <a asp-action="Index" class="btn btn-secondary">
+                            <i class="bi bi-arrow-left"></i>
+                            Back To all
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-4">
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Confirm Delete for Hotel @Model.Id</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <h3>Are you sure you want to delete?</h3>
+                <p>This action cannot be reverted.</p>
+            </div>
+            <div class="modal-footer">
+                <form method="post" asp-action="Delete">
+                    <input asp-for="Id" hidden />
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-danger">Delete</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+

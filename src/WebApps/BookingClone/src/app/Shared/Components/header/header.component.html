@@ -1,0 +1,123 @@
+<header class="bg-body-tertiary">
+  <nav class="navbar navbar-expand-md bg-primary">
+    <div class="container">
+      <a class="navbar-brand text-white fw-bold" href="#">Booking.com</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggler"
+        aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarToggler">
+        <ul class="navbar-nav ms-auto d-flex mb-2 mb-lg-0">
+          <li class="nav-item">
+            <div class="d-grid gap-2 d-md-block">
+              <button class="btn btn-outline-light border-0 mx-1" data-bs-toggle="modal"
+                data-bs-target="#currenciesModal" data-bs-tooltip="tooltip" data-bs-placement="bottom"
+                data-bs-title="Choose your currency">
+                EGP
+              </button>
+            </div>
+            <div class="modal fade" id="currenciesModal" tabindex="-1" aria-labelledby="currenciesModalLabel"
+              aria-hidden="true">
+              <div class="modal-dialog modal-xl">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h1 class="modal-title fs-5 fw-bold" id="currenciesModalLabel">Select your
+                      currency
+                    </h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                    <h6 class="fw-bold mb-3">All currencies</h6>
+                    <div id="currencyModal" class="row">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="nav-item">
+            <div class="d-grid gap-2 d-md-block">
+              <button class="btn btn-outline-light border-0 mx-1" data-bs-toggle="modal"
+                data-bs-target="#languagesModal" data-bs-tooltip="tooltip" data-bs-placement="bottom"
+                data-bs-title="Choose your language">
+                <i class="fi fi-gb fs-5"></i>
+              </button>
+            </div>
+            <div class="modal fade" id="languagesModal" tabindex="-1" aria-labelledby="languagesModalLabel"
+              aria-hidden="true">
+              <div class="modal-dialog modal-xl">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h1 class="modal-title fs-5 fw-bold" id="languagesModalLabel">
+                      {{"Select your language" | translate}}
+                    </h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                    <h6 class="fw-bold mb-3">{{"All languages" | translate}}</h6>
+                    <button class="btn btn-secondary d-block" (click)="changeLanguage('en')">EN</button>
+                    <button class="btn btn-secondary" (click)="changeLanguage('ar')">AR</button>
+                    <div id="languageModal" class="row"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="nav-item">
+            <div class="d-grid gap-2 d-md-block">
+              <button class="btn btn-outline-light border-0 mx-1" data-bs-tooltip="tooltip" data-bs-placement="bottom"
+                data-bs-title="Contact Customer Service">
+                <i class="bi bi-question-circle fs-5"></i>
+              </button>
+            </div>
+          </li>
+          <li class="nav-item">
+            <div class="d-grid gap-2 d-md-block">
+              <a href="#" class="btn btn-outline-light border mx-1">{{"List your property"|translate}}</a>
+            </div>
+          </li>
+          <li class="nav-item">
+            <div class="d-grid gap-2 d-md-block">
+              <a href="#" class="btn btn-light mx-1" [routerLink]='["/Forms"]'>{{"Register"| translate}}</a>
+            </div>
+          </li>
+          <li class="nav-item">
+            <div class="d-grid gap-2 d-md-block">
+              <a href="#" class="btn btn-light mx-1">{{"Signin"|translate}}</a>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <nav class="navbar bg-primary">
+    <div class="container">
+      <ul class="nav nav-pills">
+        <li class="nav-item">
+          <a class="nav-link text-white" href="" routerLink="Stays" routerLinkActive="active rounded-5 border">
+            <i class="bi bi-tree"></i>
+            {{"Stays"| translate}}
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white" href="" routerLink="Attractions" routerLinkActive="active rounded-5 border">
+            <i class="bi bi-binoculars-fill"></i>
+            {{"Attractions"|translate}}
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white" href="" routerLinkActive="active rounded-5 border">
+            <i class="bi bi-taxi-front-fill"></i>
+            {{"Airport Taxis"|translate}}
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white" href="" routerLink="Hotels" routerLinkActive="active rounded-5 border">
+            <i class="bi bi-taxi-front-fill"></i>
+            {{"Hotels"|translate}}
+          </a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</header>
